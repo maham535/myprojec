@@ -1,0 +1,115 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Quiz Container */
+.quiz-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for a modern look */
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    border: 1px solid #cfd8dc; /* Light border */
+}
+
+/* Heading */
+h1 {
+    color: #333e48; /* Darker color for text */
+    font-size: 30px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Questions */
+.question p {
+    color: #455a64; /* Dark gray-blue for text */
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Styling for the radio buttons and labels */
+label {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 15px;
+    cursor: pointer;
+    background-color: #f5f7fa;
+    border: 1px solid #d3dce4;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+label:hover {
+    background-color: #e1f5fe; /* Hover effect for labels */
+}
+
+input[type="radio"] {
+    margin-right: 12px;
+    accent-color: #388b6f; /* Custom radio button color */
+}
+
+/* Button */
+button {
+    background-color: #5c9e76; /* Softer green */
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #4b8561; /* Darker green for hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Result box */
+#result {
+    margin-top: 25px;
+    font-size: 22px;
+    color: #d32f2f; /* Darker red for the result message */
+    font-weight: 600;
+}
+
+/* Hidden element */
+.hidden {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .quiz-container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .question p {
+        font-size: 16px;
+    }
+}

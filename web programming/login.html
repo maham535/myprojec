@@ -1,0 +1,42 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your styles -->
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // For demonstration, using hardcoded username/password. Replace with real authentication.
+            if (username === "user" && password === "pass") {
+                localStorage.setItem('loggedIn', 'true'); // Set a flag in localStorage
+                alert("Login successful!");
+                window.location.href = "checkout.html"; // Redirect to checkout
+            } else {
+                alert("Incorrect username or password.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized Furniture</title>
+    <style>
+        /* Basic page and container styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8e6cf, #dcedc1); /* Light green gradient */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* Add a subtle hover effect */
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        /* Heading styling */
+        h2 {
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Label styling */
+        label {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-align: left;
+            display: block;
+        }
+
+        /* Input and select field styling */
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Focus effect for inputs */
+        input:focus, select:focus {
+            border-color: #76c7a6; /* Light green focus color */
+            outline: none;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #4caf50; /* Light green button */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for button */
+        button:hover {
+            background-color: #66bb6a; /* Darker light green on hover */
+        }
+
+        /* Styling the result text */
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Make the design responsive for smaller screens */
+        @media (max-width: 400px) {
+            .container {
+                width: 90%;
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Customize Your Furniture</h2>
+
+    <label for="furniture">Select Furniture Type:</label>
+    <select id="furniture" required>
+        <option value="" disabled selected>Select furniture type</option>
+        <option value="chair">Chair</option>
+        <option value="table">Table</option>
+    </select>
+
+    <label for="length">Length (in cm):</label>
+    <input type="number" id="length" placeholder="Enter length" required>
+
+    <label for="width">Width (in cm):</label>
+    <input type="number" id="width" placeholder="Enter width" required>
+
+    <label for="height">Height (in cm):</label>
+    <input type="number" id="height" placeholder="Enter height" required>
+
+    <label for="material">Select Material:</label>
+    <select id="material" required>
+        <option value="" disabled selected>Select material</option>
+        <option value="wood">Wood - $5 per cubic cm</option>
+        <option value="metal">Metal - $10 per cubic cm</option>
+        <option value="plastic">Plastic - $3 per cubic cm</option>
+    </select>
+
+    <button onclick="calculatePrice()">Calculate Price</button>
+
+    <p class="result" id="result"></p>
+</div>
+
+<script>
+    function calculatePrice() {
+        // Get input values
+        const furniture = document.getElementById('furniture').value;
+        const length = document.getElementById('length').value;
+        const width = document.getElementById('width').value;
+        const height = document.getElementById('height').value;
+        const material = document.getElementById('material').value;
+
+        // Check if all fields are filled
+        if (furniture && length && width && height && material) {
+            // Calculate the volume
+            const volume = length * width * height; // cm^3
+
+            // Material cost factors
+            const materialCosts = {
+                wood: 5,    // $5 per cubic cm
+                metal: 10,  // $10 per cubic cm
+                plastic: 3  // $3 per cubic cm
+            };
+
+            // Additional cost factor based on furniture type
+            const furnitureCosts = {
+                chair: 1.2,  // 20% increase for chairs
+                table: 1     // No additional cost for tables
+            };
+
+            // Get the cost factor for the selected material and furniture type
+            const costPerCubicCm = materialCosts[material];
+            const furnitureCostFactor = furnitureCosts[furniture];
+
+            // Calculate total price
+            const totalPrice = volume * costPerCubicCm * furnitureCostFactor;
+
+            // Display the result
+            document.getElementById('result').innerHTML = `Total Price for a ${furniture}: $${totalPrice.toFixed(2)}`;
+        } else {
+            // If any field is missing
+            document.getElementById('result').innerHTML = "Please fill in all fields.";
+        }
+    }
+</script>
+
+</body>
+</html>

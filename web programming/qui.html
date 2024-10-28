@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Style Quiz</title>
+    <link rel="stylesheet" href="c.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Find Your Furniture Style</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>What color palette do you prefer?</p>
+                <label><input type="radio" name="color" value="light"> Light</label>
+                <label><input type="radio" name="color" value="dark"> Dark</label>
+                <label><input type="radio" name="color" value="bold"> Bold</label>
+            </div>
+
+            <div class="question">
+                <p>What style do you prefer?</p>
+                <label><input type="radio" name="style" value="modern"> Modern</label>
+                <label><input type="radio" name="style" value="traditional"> Traditional</label>
+                <label><input type="radio" name="style" value="eclectic"> Eclectic</label>
+            </div>
+
+            <div class="question">
+                <p>Which material do you prefer?</p>
+                <label><input type="radio" name="material" value="wood"> Wood</label>
+                <label><input type="radio" name="material" value="metal"> Metal</label>
+                <label><input type="radio" name="material" value="glass"> Glass</label>
+            </div>
+
+            <div class="question">
+                <p>What kind of space do you live in?</p>
+                <label><input type="radio" name="space" value="small"> Small</label>
+                <label><input type="radio" name="space" value="medium"> Medium</label>
+                <label><input type="radio" name="space" value="large"> Large</label>
+            </div>
+
+            <div class="question">
+                <p>Which room is your favorite to decorate?</p>
+                <label><input type="radio" name="room" value="living-room"> Living Room</label>
+                <label><input type="radio" name="room" value="bedroom"> Bedroom</label>
+                <label><input type="radio" name="room" value="dining-room"> Dining Room</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
